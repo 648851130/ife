@@ -3,8 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <title>14</title>
+    <style>
+      html,body{
+        padding: 0;margin: 0;
+      }
+
+      div{
+        box-sizing: border-box;
+      }
+
+      .img_box{
+        width:400px;
+        height:300px;
+        margin:100px auto;
+        position: relative;
+      }
+
+      .mask{
+        position: absolute;
+        z-index: 11;
+        padding-top: 50px;
+        width:300px;
+        height:200px;
+        left:50px;
+        top:100px;
+        text-align: center;
+        opacity: 0;
+        transition:all 1s ease;
+      }
+
+      @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+          .link{
+              background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
+              -webkit-text-fill-color: transparent;
+              -webkit-background-clip: text;
+              -webkit-background-size: 200% 100%;
+              -webkit-animation: masked-animation 4s infinite linear;
+          }
+      }
+      @-webkit-keyframes masked-animation {
+          0%  { background-position: 0 0;}
+          100% { background-position: -100% 0;}
+      }
+
+
+      .img_box::before,.img_box::after{
+        top: 10%;
+        left: 10%;
+        height: 80%;
+        width: 80%;
+        -webkit-transform-origin: center;
+        -ms-transform-origin: center;
+        transform-origin: center;
+        content: '';
+        -webkit-transition: -webkit-transform 0.5s;
+        transition: transform 0.5s;
+        position: absolute;
+        box-sizing: border-box;
+        z-index: 10;
+      }
+
+      .img_box::before{
+        border-top: 5px solid #fff;
+        border-bottom: 5px solid #fff;
+        -webkit-transform: scale3d(0, 1, 1);
+        transform: scale3d(0, 1, 1);
+      }
+
+      .img_box::after{
+        border-left: 3px solid #fff;
+        border-right: 3px solid #fff;
+        -webkit-transform: scale3d(1, 0, 1);
+        transform: scale3d(1, 0, 1);
+      }
+
+
+
+
+
+      .img_box img{
+        transition:all 1s ease;
+        filter: blur(0);
+      }
+
+      .img_box:hover .mask{
+        opacity: 1;
+        top:50px;
+      }
+
+      .img_box:hover::before, .img_box:hover:after {
+          -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+
+      }
+
+      .img_box:hover img{
+        filter: blur(5px);
+      }
+    </style>
 </head>
 <body>
+
+<div class="img_box">
+  <img src="http://lorempixel.com/400/300/" alt="">
+  <div class="mask">
+    <a class='link' href="#">这是链接</a>
+  </div>
+</div>
 
 
 
