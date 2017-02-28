@@ -1,0 +1,124 @@
+html,body{
+  padding: 0;margin: 0;
+}
+
+div{
+  box-sizing: border-box;
+}
+
+.group{
+  @width: 200px;
+  @s:2s;
+
+  position: relative;
+  margin: 100px auto;
+  width: 200px;
+  height: 200px;
+
+
+  .div{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background: #f9a3ca;
+
+    clip: rect(0px,100px,200px,0px);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+  }
+
+  .div1{
+    transform: rotate(-180deg);
+    animation: myfirst1 @s linear 0s infinite;
+  }
+
+  .div2{
+    transform: rotate(-180deg);
+  }
+
+  .div3{
+    background: #fc57ac;
+    transform: rotate(-180deg);
+    animation: myfirst3 @s linear 0s infinite;
+  }
+
+  .div4{
+    background: #fc57ac;
+    transform: rotate(0deg);
+
+    animation: myfirst4 @s linear 0s infinite;
+
+  }
+
+  .div5{
+    @len:140px;
+    width: 0;
+     height: 0;
+     border: @len solid;
+     border-radius: @len;
+     border-top-color: transparent;
+     border-right-color: #fc57ac;
+     border-bottom-color: #fc57ac;
+     border-left-color: #fc57ac;
+
+     position: absolute;
+     top: -(2 * @len - @width) / 2;
+     left: -(2 * @len - @width) / 2;
+
+      transform: rotate(0deg);
+     animation: myfirst5 2s linear 0s infinite;
+  }
+
+  .div6{
+
+    @len:270px;
+    width: @len;
+     height: @len;
+
+     border-radius: @len / 2;
+     background: #fff;
+     position: absolute;
+     top: -( @len - @width) / 2;
+     left: -( @len - @width) / 2;
+  }
+
+
+
+
+  @keyframes myfirst1{
+    0% {transform: rotate(-180deg);}
+    25% {transform: rotate(-180deg);}
+    50% {transform: rotate(0deg);z-index: 2}
+    75% {transform: rotate(0deg);}
+    100% {transform: rotate(180deg);}
+  }
+
+
+  @keyframes myfirst3{
+    0% {transform: rotate(-180deg);}
+    25% {transform: rotate(0deg);}
+    50% {transform: rotate(0deg);}
+    75% {transform: rotate(180deg);}
+    100% {transform: rotate(180deg);}
+  }
+
+  @keyframes myfirst4{
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(0deg);}
+    50% {transform: rotate(0deg);}
+    75% {transform: rotate(180deg);}
+    100% {transform: rotate(360deg);}
+  }
+
+  @keyframes myfirst5{
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+  }
+
+
+
+
+}

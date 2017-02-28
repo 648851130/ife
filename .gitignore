@@ -1,0 +1,9 @@
+#Mac:
+.DS_Store
+
+#bower:
+bower_components/
+node_modules/
+
+#webstorm:
+.idea/
