@@ -90,9 +90,11 @@ div{
 
   @keyframes myfirst1{
     0% {transform: rotate(-180deg);}
-    25% {transform: rotate(-180deg);}
+    25% {transform: rotate(-180deg);z-index: 0}
+    25.01% {transform: rotate(-180deg);z-index: 2}
     50% {transform: rotate(0deg);z-index: 2}
-    75% {transform: rotate(0deg);}
+    75% {transform: rotate(0deg);z-index: 2}
+    75.01% {transform: rotate(0deg);z-index: 0}
     100% {transform: rotate(180deg);}
   }
 
