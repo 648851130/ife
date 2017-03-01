@@ -70,6 +70,11 @@ Observer.prototype = {
 
               if(names.length === 1){
                 this.convert(key, val, cb);
+                if(typeof val === 'object'){
+                  for(var k in val){
+                    new Observer(val,{watch:true,name:k,cb:cb});
+                  }
+                }
               } else {
                 if (typeof val === 'object') {
                   new Observer(val,{watch:true,name:names.slice(1).join('.'),cb:cb});

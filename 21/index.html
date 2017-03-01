@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<img src="QQ20170301-103808@2x.png" alt="">
+
+<script src="app.js"></script>
+<script type="text/javascript">
+var data = {
+    user: {
+        name: {
+          first:'san',
+          last:'zhang'
+        },
+        age: "24"
+    },
+    address: {
+        city: "beijing"
+    },
+    other:'aaa'
+};
+
+var app = new Observer(data);
+
+
+ app.$watch('user.name', function(age) {
+          console.log(`我的姓名发生了变化，可能是姓氏变了，也可能是名字变了。`)
+  });
+
+</script>
+</body>
+</html>
