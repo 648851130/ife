@@ -4,7 +4,7 @@ var browserSync = require('browser-sync');
 var autoprefixer = require('gulp-autoprefixer');
 var now_task = process.argv[4];
 
-gulp.task('serve',['less','lessWatch'],function(){
+gulp.task('serve',['lessWatch'],function(){
     var opts = {
         server: {
             baseDir: './' + now_task
