@@ -54,10 +54,11 @@ div{
   }
 
   .div5{
-    @len:140px;
-    width: 0;
-     height: 0;
-     border: @len solid;
+    @len:270px;
+    width: @len;
+     height: @len;
+     background: transparent;
+     border: 10px solid;
      border-radius: @len;
      border-top-color: transparent;
      border-right-color: #fc57ac;
@@ -65,25 +66,25 @@ div{
      border-left-color: #fc57ac;
 
      position: absolute;
-     top: -(2 * @len - @width) / 2;
-     left: -(2 * @len - @width) / 2;
+     top: -(@len - @width) / 2;
+     left: -(@len - @width) / 2;
 
       transform: rotate(0deg);
      animation: myfirst5 2s linear 0s infinite;
   }
 
-  .div6{
-
-    @len:270px;
-    width: @len;
-     height: @len;
-
-     border-radius: @len / 2;
-     background: #fff;
-     position: absolute;
-     top: -( @len - @width) / 2;
-     left: -( @len - @width) / 2;
-  }
+  // .div6{
+  //
+  //   @len:270px;
+  //   width: @len;
+  //    height: @len;
+  //
+  //    border-radius: @len / 2;
+  //    background: #fff;
+  //    position: absolute;
+  //    top: -( @len - @width) / 2;
+  //    left: -( @len - @width) / 2;
+  // }
 
 
 

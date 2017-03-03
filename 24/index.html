@@ -5,16 +5,20 @@
     <title>20</title>
     <style>
 
+        .S{width:160px;height:50px;position: relative;}
+        .S:before{content: ''; display: block;border:10px solid transparent;border-top-color:red;border-right-color:red; width:50px;height: 50px; border-radius:40px;background:transparent;transform:rotateZ(-45deg);position: absolute;}
+        .S:after{content: ''; display: block;border:10px solid transparent;border-bottom-color:red;border-right-color:red; width:50px;height: 50px; border-radius:40px;background:transparent;transform:rotateZ(45deg);position: absolute;top:-5px;left:60px}
+
     </style>
 </head>
 <body>
 
   <!-- 页面中原本的 html 模板片段 -->
   <div id="app">
-      <p>姓名：{{user.name}}</p>
-      <p>年龄：{{user.age}}</p>
+      <p class='ss'>姓名：{{user.name}}</p>
+      <p title='age'>年龄：{{user.age}}</p>
   </div>
-<!-- <img src="QQ20170301-103808@2x.png" alt=""> -->
+<div class="S"></div>
 
 <script src="app.js"></script>
 <script type="text/javascript">
@@ -26,19 +30,24 @@ var data = {
     address: {
         city: "beijing"
     },
-    other:'aaa'
+    other:{
+      a:{
+        _a:22,
+        _b:33
+      }
+    }
 };
 
-var app = new Observer({
+var app = new Vue({
   el:'#app',
   data:data
 });
 
 
- // app.$watch('user.name', function(age) {
- //          console.log(`我的姓名发生了变化，可能是姓氏变了，也可能是名字变了。`)
- //  });
- //
+ app.$watch('other.a._a', function(age) {
+          console.log(`我的姓名发生了变化，可能是姓氏变了，也可能是名字变了。`)
+  });
+
 
 
 
