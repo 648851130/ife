@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<style>
+  body {
+    background: #000;
+  }
+
+  #container {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    transform-style: preserve-3d;
+    perspective: 1200px;
+  }
+
+  #translation {
+    transform-style: preserve-3d;
+    transform: translate3d(300px, 300px, 400px);
+  }
+
+  #ball {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    transform-style: preserve-3d;
+    width: 0px;
+    height: 0px;
+    /*-webkit-animation: rot 14s linear infinite;
+    animation: rot 14s linear infinite;*/
+  }
+
+  #ball>a {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 30px;
+    height: 30px;
+    margin: -15px;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+    color: yellow;
+    background: rgba(160, 160, 64, 0.7);
+  }
+
+  #ball>a:hover {
+    background: red;
+  }
+
+  #ball:hover {
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+
+  @-webkit-keyframes rot {
+    to {
+      transform: rotateY(360deg);
+    }
+  }
+
+  @keyframes rot {
+    to {
+      transform: rotateY(360deg);
+    }
+  }
+</style>
+<div id="container">
+  <div id="translation">
+    <div id="ball"></div>
+  </div>
+</div>
+<script>
+  var π = Math.PI,
+    sin = Math.sin,
+    cos = Math.cos;
+  void
+  function() {
+    var k = 0; //元素上显示的数字
+    var r = 100; //半径
+    var h = 8; //半赤道的元素个数
+    //遍历经线
+    for (var i = 0; i <= h; i++) {
+      var φ = i / h * π,
+        s = sin(φ) * r,
+        c = cos(φ) * r;
+      //计算该纬线上最适合的元素个数
+      //等于赤道的元素个数乘以当前纬线半径和赤道半径的比
+      var l = Math.max(s / r * h * 2 | 0, 1);
+      //遍历纬线
+      for (var j = 0; j < l; j++) {
+        //创建元素，并初始化
+        var e = document.createElement("a");
+        e.href = "#" + k;
+        e.textContent = k++;
+        ball.appendChild(e);
+        //调整好朝向，并平移旋转到初始位置
+        e.style.transform = [
+          "rotateY(" + j / l * 360 + "deg)",
+          "rotateZ(" + i / h * 180 + "deg)",
+          "translateY(" + r + "px)",
+          "rotateX(-90deg)",
+          "rotateZ(-90deg)",
+        ].join(" ");
+      };
+    };
+  }();
+</script>
